@@ -9,7 +9,6 @@ import {
 	Animated
 } from "react-native";
 import {
-	Octicons,
 	Feather,
 	MaterialIcons,
 	MaterialCommunityIcons
@@ -17,11 +16,10 @@ import {
 
 import { styles, PLACEHOLDER_COLOR } from "../../styles/account";
 
-export default class Register extends React.Component {
+export default class Login extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			username: "",
 			email: "",
 			password: "",
 			isSubmited: false,
@@ -92,15 +90,26 @@ export default class Register extends React.Component {
 
 	handleBlur = input => this.setState({ [input]: false });
 
-	submit = () => this.setState({ isSubmited: true });
+	validateEmail = value => {
+		let reg = new RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/);
+		return reg.test(value);
+	};
+
+	submit = () => {
+		this.setState({ isSubmited: true });
+		setTimeout(() => {
+			this.props.navigation.navigate("Home");
+		}, 2000);
+	};
 
 	facebookAuth = () => {};
 
 	instagramAuth = () => {};
 
+	forgotPassword = () => {};
+
 	render() {
 		const {
-			username,
 			email,
 			password,
 			isSubmited,
@@ -117,37 +126,14 @@ export default class Register extends React.Component {
 					/>
 					<TouchableOpacity
 						activeOpacity={0.8}
-						onPress={() => this.props.navigation.navigate("Login")}
+						onPress={() => this.props.navigation.navigate("Register")}
 					>
-						<Text style={styles.navigation}>Sign in</Text>
+						<Text style={styles.navigation}>Sign up</Text>
 					</TouchableOpacity>
 				</View>
 				<Text style={styles.title}>Welcome Back,</Text>
-				<Text style={styles.description}>Sign up to continue</Text>
+				<Text style={styles.description}>Sign in to continue</Text>
 				<View style={styles.form}>
-					<View style={styles.inputHolder}>
-						<Octicons
-							style={styles.icon}
-							name="mention"
-							size={20}
-							color={this.state.inputOneFocus ? "#BDC3C7" : "#ddd"}
-						/>
-						<TextInput
-							autoCorrect={false}
-							autoCapitalize={"none"}
-							onFocus={() => this.handleFocus("inputOneFocus")}
-							onBlur={() => this.handleBlur("inputOneFocus")}
-							onChange={value => this.setState({ username: value })}
-							maxLength={200}
-							placeholder={"Username"}
-							style={[
-								styles.input,
-								username === "" && isSubmited ? styles.inputError : null,
-								this.state.inputOneFocus ? styles.inputActive : null
-							]}
-							placeholderTextColor={PLACEHOLDER_COLOR}
-						/>
-					</View>
 					<View style={styles.inputHolder}>
 						<Feather
 							style={styles.icon}
@@ -160,13 +146,15 @@ export default class Register extends React.Component {
 							autoCapitalize={"none"}
 							onFocus={() => this.handleFocus("inputTwoFocus")}
 							onBlur={() => this.handleBlur("inputTwoFocus")}
-							onChange={value => this.setState({ email: value })}
+							onChangeText={value => this.setState({ email: value })}
 							keyboardType={"email-address"}
 							maxLength={200}
 							placeholder={"Email"}
 							style={[
 								styles.input,
-								email === "" && isSubmited ? styles.inputError : null,
+								!this.validateEmail(email) && isSubmited
+									? styles.inputError
+									: null,
 								this.state.inputTwoFocus ? styles.inputActive : null
 							]}
 							placeholderTextColor={PLACEHOLDER_COLOR}
@@ -184,7 +172,7 @@ export default class Register extends React.Component {
 							autoCapitalize={"none"}
 							onFocus={() => this.handleFocus("inputThreeFocus")}
 							onBlur={() => this.handleBlur("inputThreeFocus")}
-							onChange={value => this.setState({ password: value })}
+							onChangeText={value => this.setState({ password: value })}
 							maxLength={200}
 							placeholder={"Password"}
 							style={[
@@ -203,7 +191,7 @@ export default class Register extends React.Component {
 						activeOpacity={0.6}
 						style={styles.submit}
 					>
-						<Text style={styles.submitBtn}>Sign up</Text>
+						<Text style={styles.submitBtn}>Sign in</Text>
 					</TouchableOpacity>
 					<TouchableOpacity
 						onPress={this.facebookAuth}
@@ -231,6 +219,13 @@ export default class Register extends React.Component {
 						/>
 						<Text style={styles.socialText}>Login with instagram</Text>
 					</TouchableOpacity>
+					<TouchableOpacity
+						onPress={() => this.props.navigation.navigate("ForgotPassword")}
+						activeOpacity={0.8}
+						style={styles.forgotPassword}
+					>
+						<Text style={styles.forgotPasswordText}>Forgot Password ?</Text>
+					</TouchableOpacity>
 					<View style={styles.termsHolder}>
 						<Text style={styles.terms}>
 							By creating account, you agree to our
@@ -249,7 +244,7 @@ export default class Register extends React.Component {
 						{ bottom: submitAnim, opacity: submitFadeAnim }
 					]}
 				>
-					<Text style={styles.submitBtn}>Sign up</Text>
+					<Text style={styles.submitBtn}>Sign in</Text>
 				</Animated.View>
 			</View>
 		);

@@ -1,0 +1,24 @@
+const Theme = {
+	General: {
+		BACKGROUND_COLOR: "#fff",
+		PRIMARY_COLOR: "#43B55B",
+		MAIN_COLOR: "#000",
+		SECONDERY_COLOR: "#333"
+	},
+	Account: {
+		PLACEHOLDER_COLOR: "#888",
+		INPUT_COLOR: "#222",
+		INPUT_BORDER_COLOR_ACTIVE: "#999",
+		INPUT_BORDER_COLOR_ERROR: "#CF000F",
+		INPUT_BORDER_COLOR: "#ddd"
+	},
+	Explore: {
+		IMAGE_PLACEHOLDER_BG: "#999",
+		TAGBG: "#43B55B",
+		TAGCOLOR: "#FFF",
+		LISTBUTTON: "#FF0101",
+		BANNER_PRIMARY_COLOR: "#FFED00"
+	}
+};
+
+export { Theme };
