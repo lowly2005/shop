@@ -4,7 +4,7 @@ import { LinearGradient } from "expo";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const offer = props => (
-	<View style={props.style.offerContainer}>
+	<TouchableOpacity activeOpacity={0.8} style={props.style.offerContainer}>
 		<Image
 			style={props.style.offerContainerImage}
 			resizeMode={Image.resizeMode.cover}
@@ -29,7 +29,7 @@ const offer = props => (
 				/>
 			</TouchableOpacity>
 		</LinearGradient>
-	</View>
+	</TouchableOpacity>
 );
 
 export default offer;

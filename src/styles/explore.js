@@ -16,14 +16,14 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingTop: Constants.statusBarHeight > 25 ? 60 : 30,
 		flexDirection: "column",
-		backgroundColor: BACKGROUND_COLOR
+		backgroundColor: BACKGROUND_COLOR,
+		paddingHorizontal: 15
 	},
 	exploreHeader: {
 		marginBottom: 20,
 		flexDirection: "row",
 		justifyContent: "space-between",
-		alignItems: "center",
-		paddingHorizontal: 15
+		alignItems: "center"
 	},
 	exploreHeaderName: {
 		fontSize: 14,
@@ -41,9 +41,8 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 		borderRadius: 6,
 		padding: 15,
-		marginHorizontal: 15,
 		backgroundColor: IMAGE_PLACEHOLDER_BG,
-		height: 340,
+		height: 350,
 		overflow: "hidden"
 	},
 	offerContainerImage: {
@@ -105,8 +104,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		justifyContent: "space-between",
 		flexDirection: "row",
-		marginVertical: 20,
-		paddingHorizontal: 15
+		marginVertical: 20
 	},
 	listTitle: {
 		color: MAIN_COLOR,
@@ -127,7 +125,8 @@ const styles = StyleSheet.create({
 	},
 	itemContainer: {
 		marginRight: 15,
-		width: 130
+		width: 135,
+		overflow: "hidden"
 	},
 	itemImageContainer: {
 		padding: 10,
@@ -143,7 +142,7 @@ const styles = StyleSheet.create({
 	},
 	itemTitle: {
 		color: MAIN_COLOR,
-		fontSize: 13,
+		fontSize: 12,
 		fontWeight: "500"
 	},
 	bannerContainer: {
@@ -152,7 +151,6 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 		borderRadius: 4,
 		paddingHorizontal: 15,
-		marginHorizontal: 15,
 		paddingTop: 40,
 		paddingBottom: 10,
 		backgroundColor: IMAGE_PLACEHOLDER_BG,

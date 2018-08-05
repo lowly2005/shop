@@ -7,7 +7,7 @@ const list = props => (
 		<View style={props.style.listHeaderContainer}>
 			<Text style={props.style.listTitle}>{props.title}</Text>
 			<TouchableOpacity
-				activeOpacity={0.8}
+				activeOpacity={0.5}
 				style={props.style.listButtonContainer}
 			>
 				<Text style={props.style.listButton}>{props.button}</Text>

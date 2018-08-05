@@ -15,7 +15,7 @@ import {
 	MaterialCommunityIcons
 } from "@expo/vector-icons";
 
-import { styles, PLACEHOLDER_COLOR } from "../../styles/account";
+import { styles, PLACEHOLDER_COLOR } from "../../styles/auth";
 
 export default class Register extends React.Component {
 	constructor(props) {
@@ -117,7 +117,7 @@ export default class Register extends React.Component {
 					/>
 					<TouchableOpacity
 						activeOpacity={0.8}
-						onPress={() => this.props.navigation.navigate("Login")}
+						onPress={() => this.props.navigation.replace("Login")}
 					>
 						<Text style={styles.navigation}>Sign in</Text>
 					</TouchableOpacity>

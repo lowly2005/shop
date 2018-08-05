@@ -4,7 +4,7 @@ import { LinearGradient } from "expo";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const banner = props => (
-	<View style={props.style.bannerContainer}>
+	<TouchableOpacity activeOpacity={0.8} style={props.style.bannerContainer}>
 		<Image
 			style={props.style.bannerContainerImage}
 			resizeMode={Image.resizeMode.cover}
@@ -32,7 +32,7 @@ const banner = props => (
 			locations={[0, 1.0]}
 			colors={["rgba(0,0,0,0)", "rgba(0,0,0,0.8)"]}
 		/>
-	</View>
+	</TouchableOpacity>
 );
 
 export default banner;

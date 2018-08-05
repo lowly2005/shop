@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
-import { styles, PLACEHOLDER_COLOR } from "../../styles/account";
+import { styles, PLACEHOLDER_COLOR } from "../../styles/auth";
 
 export default class ForgotPassword extends React.Component {
 	constructor(props) {
@@ -34,7 +34,10 @@ export default class ForgotPassword extends React.Component {
 						style={styles.logo}
 						source={require("../../assets/images/logo.png")}
 					/>
-					<TouchableOpacity activeOpacity={0.8}>
+					<TouchableOpacity
+						activeOpacity={0.8}
+						onPress={() => this.props.navigation.pop()}
+					>
 						<Text style={styles.navigation}>Sign in</Text>
 					</TouchableOpacity>
 				</View>

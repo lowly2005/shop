@@ -13,8 +13,9 @@ import {
 	MaterialIcons,
 	MaterialCommunityIcons
 } from "@expo/vector-icons";
+import { NavigationActions } from "react-navigation";
 
-import { styles, PLACEHOLDER_COLOR } from "../../styles/account";
+import { styles, PLACEHOLDER_COLOR } from "../../styles/auth";
 
 export default class Login extends React.Component {
 	constructor(props) {
@@ -97,9 +98,9 @@ export default class Login extends React.Component {
 
 	submit = () => {
 		this.setState({ isSubmited: true });
-		setTimeout(() => {
-			this.props.navigation.navigate("Home");
-		}, 2000);
+		this.props.navigation.dispatch(
+			NavigationActions.navigate({ routeName: "App" })
+		);
 	};
 
 	facebookAuth = () => {};
@@ -117,6 +118,7 @@ export default class Login extends React.Component {
 			submitAnim,
 			submitFadeAnim
 		} = this.state;
+		console.log(this.props.navigation.state);
 		return (
 			<View style={styles.container}>
 				<View style={styles.header}>
@@ -126,7 +128,7 @@ export default class Login extends React.Component {
 					/>
 					<TouchableOpacity
 						activeOpacity={0.8}
-						onPress={() => this.props.navigation.navigate("Register")}
+						onPress={() => this.props.navigation.replace("Register")}
 					>
 						<Text style={styles.navigation}>Sign up</Text>
 					</TouchableOpacity>
