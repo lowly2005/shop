@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { NavigationActions } from "react-navigation";
 import { styles } from "../../styles/account";
 
-export default class Account extends React.Component {
+export default class Account extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
@@ -33,10 +33,18 @@ export default class Account extends React.Component {
 							<Text style={styles.notificationText}>2</Text>
 						</View>
 					</TouchableOpacity>
-					<TouchableOpacity activeOpacity={0.6} style={styles.item}>
+					<TouchableOpacity
+						activeOpacity={0.6}
+						style={styles.item}
+						onPress={() => this.props.navigation.navigate("Address")}
+					>
 						<Text style={styles.itemText}>Address</Text>
 					</TouchableOpacity>
-					<TouchableOpacity activeOpacity={0.6} style={styles.item}>
+					<TouchableOpacity
+						activeOpacity={0.6}
+						style={styles.item}
+						onPress={() => this.props.navigation.navigate("Payment")}
+					>
 						<Text style={styles.itemText}>Payment</Text>
 					</TouchableOpacity>
 				</View>

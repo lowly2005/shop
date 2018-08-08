@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
 	View,
 	Text,
@@ -17,7 +17,7 @@ import {
 
 import { styles, PLACEHOLDER_COLOR } from "../../styles/auth";
 
-export default class Register extends React.Component {
+export default class Register extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 import { styles, PLACEHOLDER_COLOR } from "../../styles/auth";
 
-export default class ForgotPassword extends React.Component {
+export default class ForgotPassword extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {

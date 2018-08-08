@@ -3,7 +3,9 @@ const Theme = {
 		BACKGROUND_COLOR: "#fff",
 		PRIMARY_COLOR: "#43B55B",
 		MAIN_COLOR: "#000",
-		SECONDERY_COLOR: "#333"
+		SECONDERY_COLOR: "#333",
+		THIRD_COLOR: "#F9F9F9",
+		RED_COLOR: "#FF0101"
 	},
 	Auth: {
 		PLACEHOLDER_COLOR: "#888",
@@ -23,6 +25,10 @@ const Theme = {
 		NOTIFICATIONBG: "#43B55B",
 		NOTIFICATIONCOLOR: "#fff",
 		LABELCOLOR: "#BCBABA"
+	},
+	Address: {
+		BG: "#F9F9F9",
+		COMMAND_BTN_COLOR: "#FF0101"
 	}
 };
 

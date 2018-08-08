@@ -1,21 +1,26 @@
 import React from "react";
-import Register from "./src/screens/account/register";
-import Login from "./src/screens/account/login";
-import ForgotPassword from "./src/screens/account/forgotPassword";
 import {
 	createStackNavigator,
 	createBottomTabNavigator,
 	createSwitchNavigator
 } from "react-navigation";
 import { Image } from "react-native";
-
+// Auth pages
+import Register from "./src/screens/account/register";
+import Login from "./src/screens/account/login";
+import ForgotPassword from "./src/screens/account/forgotPassword";
+// Main Pages
 import Explore from "./src/screens/explore";
 import Category from "./src/screens/category";
 import Cart from "./src/screens/cart";
 import Offers from "./src/screens/offers";
+// Account pages
 import Account from "./src/screens/profile/account";
 import Profile from "./src/screens/profile/profile";
 import Orders from "./src/screens/profile/orders";
+import Address from "./src/screens/profile/address";
+import Payment from "./src/screens/profile/payment";
+import Tracking from "./src/screens/profile/tracking";
 
 const AuthNavigation = createStackNavigator(
 	{
@@ -45,10 +50,19 @@ const AccountStackNavigation = createStackNavigator(
 		},
 		Orders: {
 			screen: Orders
+		},
+		Address: {
+			screen: Address
+		},
+		Payment: {
+			screen: Payment
+		},
+		Tracking: {
+			screen: Tracking
 		}
 	},
 	{
-		initialRouteName: "Orders",
+		initialRouteName: "Account",
 		headerMode: "none"
 	}
 );
@@ -62,17 +76,6 @@ const MainStackNavigation = createBottomTabNavigator(
 					<Image
 						style={{ width: 22, height: 22, tintColor: tintColor }}
 						source={require("./src/assets/images/tab_home.png")}
-					/>
-				)
-			}
-		},
-		Profile: {
-			screen: AccountStackNavigation,
-			navigationOptions: {
-				tabBarIcon: ({ tintColor }) => (
-					<Image
-						style={{ width: 22, height: 22, tintColor: tintColor }}
-						source={require("./src/assets/images/tab_profile.png")}
 					/>
 				)
 			}
@@ -109,9 +112,21 @@ const MainStackNavigation = createBottomTabNavigator(
 					/>
 				)
 			}
+		},
+		Profile: {
+			screen: AccountStackNavigation,
+			navigationOptions: {
+				tabBarIcon: ({ tintColor }) => (
+					<Image
+						style={{ width: 22, height: 22, tintColor: tintColor }}
+						source={require("./src/assets/images/tab_profile.png")}
+					/>
+				)
+			}
 		}
 	},
 	{
+		initialRouteName: "Category",
 		tabBarOptions: {
 			activeTintColor: "#43B55B",
 			inactiveTintColor: "#444",
@@ -135,20 +150,8 @@ const TopLevelNavigation = createSwitchNavigator(
 		Account: AccountStackNavigation
 	},
 	{
-		initialRouteName: "Account"
+		initialRouteName: "App"
 	}
 );
 
 export default TopLevelNavigation;
-
-// export default class App extends Component {
-// 	render() {
-// 		return (
-// 			<TopLevelNavigation
-// 				ref={navigatorRef => {
-// 					NavigationService.setTopLevelNavigator(navigatorRef);
-// 				}}
-// 			/>
-// 		);
-// 	}
-// }

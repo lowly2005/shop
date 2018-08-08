@@ -10,6 +10,7 @@ const {
 	INPUT_BORDER_COLOR_ERROR
 } = Theme.Auth;
 const { NOTIFICATIONBG, NOTIFICATIONCOLOR, LABELCOLOR } = Theme.Account;
+const { BG, COMMAND_BTN_COLOR } = Theme.Address;
 
 const styles = StyleSheet.create({
 	container: {
@@ -210,10 +211,108 @@ const ordersStyle = StyleSheet.create({
 	}
 });
 
+const addressStyle = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: BG,
+		marginTop: 15,
+		borderTopColor: "#eee",
+		borderTopWidth: 1
+	},
+	btnContainer: {
+		backgroundColor: PRIMARY_COLOR,
+		borderRadius: 4,
+		alignItems: "center",
+		justifyContent: "center",
+		flexDirection: "row",
+		padding: 15,
+		marginVertical: 15,
+		marginHorizontal: 15
+	},
+	btnText: {
+		color: "#fff",
+		fontSize: 17,
+		fontWeight: "bold",
+		marginLeft: 5
+	},
+	cardContainer: {
+		borderRadius: 4,
+		backgroundColor: "#fff",
+		paddingHorizontal: 20,
+		paddingVertical: 15,
+		borderColor: "#eee",
+		borderWidth: 1,
+		marginBottom: 15,
+		shadowOffset: { width: 1, height: 1 },
+		shadowRadius: 5,
+		shadowColor: "#999",
+		shadowOpacity: 0.3,
+		marginHorizontal: 15
+	},
+	default: {
+		position: "absolute",
+		right: 20,
+		top: 10
+	},
+	fullName: {
+		fontSize: 15,
+		fontWeight: "bold",
+		marginBottom: 15,
+		marginRight: 25
+	},
+	address: {
+		color: "#333",
+		fontSize: 13,
+		marginBottom: 20
+	},
+	bottomSection: {
+		alignItems: "center",
+		justifyContent: "space-between",
+		flexDirection: "row"
+	},
+	phone: {
+		fontSize: 13,
+		fontWeight: "bold"
+	},
+	commandBtn: {
+		fontSize: 13,
+		fontWeight: "bold",
+		color: COMMAND_BTN_COLOR
+	},
+	divider: {
+		marginHorizontal: 15,
+		marginVertical: 2,
+		width: 1,
+		backgroundColor: "#ddd"
+	}
+});
+
+const paymentStyle = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: "#fff",
+		paddingVertical: 20,
+		paddingHorizontal: 15
+	}
+});
+
+const trackingStyle = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: "#fff",
+		paddingVertical: 20,
+		paddingHorizontal: 15
+	}
+});
+
 export {
 	styles,
 	profileStyle,
 	ordersStyle,
+	addressStyle,
+	paymentStyle,
+	trackingStyle,
 	PLACEHOLDER_COLOR,
-	INPUT_BORDER_COLOR
+	INPUT_BORDER_COLOR,
+	PRIMARY_COLOR
 };
