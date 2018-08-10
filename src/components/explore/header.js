@@ -9,7 +9,10 @@ const header = props => (
 			<Text style={props.style.exploreHeaderName}>Hi {props.name},</Text>
 			<Text style={props.style.exploreHeaderTitle}>Welcome</Text>
 		</View>
-		<TouchableOpacity activeOpacity={0.8}>
+		<TouchableOpacity
+			activeOpacity={0.8}
+			onPress={() => props.onShowSearchModal()}
+		>
 			<Ionicons name="ios-search" size={25} color={"#000"} />
 		</TouchableOpacity>
 	</View>

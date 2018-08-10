@@ -7,11 +7,17 @@ import {
 	FlatList
 } from "react-native";
 
-import { navbarStyle, categoryStyle, PRIMARY_COLOR } from "../styles/main";
+import {
+	searchStyle,
+	navbarStyle,
+	categoryStyle,
+	PRIMARY_COLOR
+} from "../styles/main";
 import Navbar from "../components/general/navbar";
 import Items from "../components/category/items";
 import CategoryList from "../components/category/list";
 import FilterList from "../components/category/filter";
+import Search from "../components/general/search";
 import { Entypo, Ionicons } from "@expo/vector-icons";
 
 export default class Category extends Component {
@@ -109,7 +115,8 @@ export default class Category extends Component {
 				}
 			],
 			categoryModalStatus: false,
-			filterModalStatus: true
+			filterModalStatus: false,
+			searchModalStatus: false
 		};
 	}
 
@@ -179,11 +186,14 @@ export default class Category extends Component {
 
 	closeFilterModal = () => this.setState({ filterModalStatus: false });
 
+	closeSearchModal = () => this.setState({ searchModalStatus: false });
+
 	render() {
 		const {
 			categoryItems,
 			categoryModalStatus,
-			filterModalStatus
+			filterModalStatus,
+			searchModalStatus
 		} = this.state;
 		return (
 			<React.Fragment>
@@ -198,19 +208,29 @@ export default class Category extends Component {
 					status={filterModalStatus}
 					onCloseFilterModal={this.closeFilterModal}
 				/>
+				<Search
+					style={searchStyle}
+					status={searchModalStatus}
+					onCloseSearchModal={this.closeSearchModal}
+				/>
 				<View style={categoryStyle.container}>
 					<Navbar
 						style={navbarStyle}
 						left={
 							<View style={{ alignItems: "center", flexDirection: "row" }}>
 								<Ionicons
-									style={{ marginRight: 26 }}
+									style={{ marginRight: 26, paddingHorizontal: 10 }}
 									name={"ios-options"}
 									size={20}
 									color={PRIMARY_COLOR}
 									onPress={() => this.setState({ filterModalStatus: true })}
 								/>
-								<Ionicons name={"ios-search"} size={26} color={"#222"} />
+								<Ionicons
+									name={"ios-search"}
+									size={26}
+									color={"#222"}
+									onPress={() => this.setState({ searchModalStatus: true })}
+								/>
 							</View>
 						}
 						title={
@@ -229,6 +249,7 @@ export default class Category extends Component {
 						right={
 							<React.Fragment>
 								<Ionicons
+									onPress={() => this.props.navigation.goBack()}
 									name={"ios-arrow-back-outline"}
 									size={22}
 									color={"#999"}

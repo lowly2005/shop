@@ -14,6 +14,8 @@ import Explore from "./src/screens/explore";
 import Category from "./src/screens/category";
 import Cart from "./src/screens/cart";
 import Offers from "./src/screens/offers";
+// Product pages
+import Details from "./src/screens/product/details";
 // Account pages
 import Account from "./src/screens/profile/account";
 import Profile from "./src/screens/profile/profile";
@@ -67,6 +69,18 @@ const AccountStackNavigation = createStackNavigator(
 	}
 );
 
+const ProductStackNavigation = createStackNavigator(
+	{
+		Details: {
+			screen: Details
+		}
+	},
+	{
+		initialRouteName: "Details",
+		headerMode: "none"
+	}
+);
+
 const MainStackNavigation = createBottomTabNavigator(
 	{
 		Explore: {
@@ -74,7 +88,7 @@ const MainStackNavigation = createBottomTabNavigator(
 			navigationOptions: {
 				tabBarIcon: ({ tintColor }) => (
 					<Image
-						style={{ width: 22, height: 22, tintColor: tintColor }}
+						style={{ width: 20, height: 20, tintColor: tintColor }}
 						source={require("./src/assets/images/tab_home.png")}
 					/>
 				)
@@ -85,7 +99,7 @@ const MainStackNavigation = createBottomTabNavigator(
 			navigationOptions: {
 				tabBarIcon: ({ tintColor }) => (
 					<Image
-						style={{ width: 22, height: 22, tintColor: tintColor }}
+						style={{ width: 18, height: 18, tintColor: tintColor }}
 						source={require("./src/assets/images/tab_category.png")}
 					/>
 				)
@@ -96,7 +110,7 @@ const MainStackNavigation = createBottomTabNavigator(
 			navigationOptions: {
 				tabBarIcon: ({ tintColor }) => (
 					<Image
-						style={{ width: 22, height: 22, tintColor: tintColor }}
+						style={{ width: 20, height: 20, tintColor: tintColor }}
 						source={require("./src/assets/images/tab_cart.png")}
 					/>
 				)
@@ -107,7 +121,7 @@ const MainStackNavigation = createBottomTabNavigator(
 			navigationOptions: {
 				tabBarIcon: ({ tintColor }) => (
 					<Image
-						style={{ width: 22, height: 22, tintColor: tintColor }}
+						style={{ width: 20, height: 20, tintColor: tintColor }}
 						source={require("./src/assets/images/tab_offers.png")}
 					/>
 				)
@@ -118,7 +132,7 @@ const MainStackNavigation = createBottomTabNavigator(
 			navigationOptions: {
 				tabBarIcon: ({ tintColor }) => (
 					<Image
-						style={{ width: 22, height: 22, tintColor: tintColor }}
+						style={{ width: 20, height: 20, tintColor: tintColor }}
 						source={require("./src/assets/images/tab_profile.png")}
 					/>
 				)
@@ -126,7 +140,7 @@ const MainStackNavigation = createBottomTabNavigator(
 		}
 	},
 	{
-		initialRouteName: "Category",
+		initialRouteName: "Explore",
 		tabBarOptions: {
 			activeTintColor: "#43B55B",
 			inactiveTintColor: "#444",
@@ -147,6 +161,7 @@ const TopLevelNavigation = createSwitchNavigator(
 	{
 		Auth: AuthNavigation,
 		App: MainStackNavigation,
+		ProductStackNavigation: ProductStackNavigation,
 		Account: AccountStackNavigation
 	},
 	{

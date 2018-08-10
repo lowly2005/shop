@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 import { Theme } from "../constants/style";
 import { Constants } from "expo";
 import { PRIMARY_COLOR } from "./account";
@@ -11,7 +11,6 @@ const {
 	LISTBUTTON,
 	BANNER_PRIMARY_COLOR
 } = Theme.Explore;
-const width = Dimensions.get("window").width;
 
 const navbarStyle = StyleSheet.create({
 	navbar: {
@@ -27,6 +26,54 @@ const navbarStyle = StyleSheet.create({
 		flexDirection: "row-reverse",
 		alignItems: "center",
 		flex: 1
+	}
+});
+
+const searchStyle = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: BACKGROUND_COLOR,
+		paddingTop: Constants.statusBarHeight > 25 ? 50 : 40
+	},
+	searchHeader: {
+		paddingHorizontal: 15,
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-between",
+		marginBottom: 15
+	},
+	searchTitle: {
+		fontSize: 30,
+		fontWeight: "bold"
+	},
+	searchInputContainer: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "center",
+		paddingHorizontal: 15,
+		paddingVertical: 10,
+		borderBottomColor: "#eee",
+		borderBottomWidth: 1
+	},
+	searchInput: {
+		fontSize: 15,
+		marginLeft: 10,
+		flex: 1
+	},
+	searchClear: {
+		fontSize: 14,
+		color: RED_COLOR,
+		fontWeight: "bold"
+	},
+	searchSuggestionContainer: {
+		paddingHorizontal: 30,
+		paddingVertical: 15
+	},
+	searchSuggestion: {
+		paddingVertical: 20
+	},
+	searchSuggestionText: {
+		fontSize: 14
 	}
 });
 
@@ -452,7 +499,7 @@ const categoryStyle = StyleSheet.create({
 	searchBtn: {
 		backgroundColor: PRIMARY_COLOR,
 		paddingTop: 10,
-		paddingBottom: Constants.statusBarHeight > 25 ? 25 : 10,
+		paddingBottom: Constants.statusBarHeight > 25 ? 20 : 10,
 		alignItems: "center",
 		position: "absolute",
 		bottom: 0,
@@ -488,4 +535,188 @@ const categoryStyle = StyleSheet.create({
 	}
 });
 
-export { navbarStyle, exploreStyle, offersStyle, categoryStyle, PRIMARY_COLOR };
+const productDetailsStyle = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: BACKGROUND_COLOR,
+		position: "relative",
+		marginTop: Constants.statusBarHeight
+	},
+	statusBar: {
+		position: "absolute",
+		top: 0,
+		right: 0,
+		left: 0,
+		height: Constants.statusBarHeight,
+		backgroundColor: "#fff",
+		zIndex: 10
+	},
+	navbar: {
+		position: "absolute",
+		right: 0,
+		left: 0,
+		top: 0,
+		paddingHorizontal: 15,
+		flexDirection: "row",
+		justifyContent: "space-between",
+		zIndex: 20
+	},
+	slider: {
+		position: "relative"
+	},
+	sliderItems: {
+		flex: 1,
+		height: Constants.statusBarHeight > 25 ? 300 : 250,
+		alignItems: "center",
+		alignContent: "center",
+		justifyContent: "center"
+	},
+	sliderImage: {
+		height: Constants.statusBarHeight > 25 ? 300 : 250
+	},
+	sliderIndicatorContainer: {
+		position: "absolute",
+		bottom: 0,
+		left: 0,
+		right: 0,
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "center"
+	},
+	sliderIndicator: {
+		width: 8,
+		height: 8,
+		backgroundColor: "#ddd",
+		borderRadius: 8 / 2,
+		marginHorizontal: 5
+	},
+	title: {
+		fontSize: 26,
+		fontWeight: "bold",
+		marginVertical: 15,
+		paddingHorizontal: 15
+	},
+	generalInfo: {
+		flexDirection: "row",
+		alignItems: "center",
+		borderBottomColor: "#eee",
+		borderBottomWidth: 1,
+		paddingVertical: 10,
+		paddingHorizontal: 15
+	},
+	discountPrice: {
+		fontSize: 22,
+		fontWeight: "bold",
+		marginRight: 15
+	},
+	price: {
+		fontSize: 22,
+		fontWeight: "bold"
+	},
+	priceLineThrough: {
+		color: RED_COLOR,
+		fontSize: 16,
+		fontWeight: "400",
+		textDecorationLine: "line-through"
+	},
+	dealContainer: {
+		paddingHorizontal: 8,
+		paddingVertical: 5,
+		borderRadius: 2,
+		marginLeft: 15
+	},
+	deal: {
+		fontSize: 10,
+		color: "#fff"
+	},
+	rateAndReviewContainer: {
+		flexDirection: "row",
+		justifyContent: "space-between",
+		alignItems: "center",
+		paddingHorizontal: 15,
+		paddingVertical: 20,
+		borderBottomColor: "#eee",
+		borderBottomWidth: 1
+	},
+	rateConatiner: {
+		paddingHorizontal: 8,
+		paddingVertical: 3,
+		borderRadius: 4,
+		backgroundColor: PRIMARY_COLOR,
+		marginRight: 5
+	},
+	rate: {
+		color: "#fff",
+		fontSize: 12
+	},
+	rateText: {
+		fontSize: 12,
+		fontWeight: "500"
+	},
+	reviewsContainer: {
+		flexDirection: "row",
+		alignItems: "center"
+	},
+	reviewsText: {
+		color: RED_COLOR,
+		fontWeight: "bold",
+		fontSize: 12
+	},
+	specifications: {
+		paddingHorizontal: 15,
+		paddingVertical: 20,
+		borderBottomColor: "#eee",
+		borderBottomWidth: 1
+	},
+	specificationsTitle: {
+		fontSize: 20,
+		fontWeight: "bold",
+		marginBottom: 20
+	},
+	specificationsTable: {
+		flexDirection: "row",
+		alignItems: "center",
+		alignContent: "flex-start",
+		justifyContent: "space-between",
+		marginBottom: 5
+	},
+	specificationsHeader: {
+		fontSize: 15,
+		fontWeight: "500"
+	},
+	specificationsBody: {
+		fontSize: 15,
+		fontWeight: "bold"
+	},
+	relatedProductContainer: {
+		paddingHorizontal: 15,
+		paddingBottom: Constants.statusBarHeight > 25 ? 35 : 25
+	},
+	buttonContainer: {
+		backgroundColor: PRIMARY_COLOR,
+		paddingTop: 10,
+		paddingBottom: Constants.statusBarHeight > 25 ? 20 : 10,
+		alignItems: "center",
+		position: "absolute",
+		bottom: 0,
+		left: 0,
+		right: 0,
+		zIndex: 10
+	},
+	button: {
+		fontSize: 15,
+		color: "#fff",
+		fontWeight: "bold"
+	}
+});
+
+export {
+	searchStyle,
+	navbarStyle,
+	exploreStyle,
+	offersStyle,
+	categoryStyle,
+	productDetailsStyle,
+	PRIMARY_COLOR,
+	RED_COLOR
+};
