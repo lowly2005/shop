@@ -15,7 +15,9 @@ import Category from "./src/screens/category";
 import Cart from "./src/screens/cart";
 import Offers from "./src/screens/offers";
 // Product pages
-import Details from "./src/screens/product/details";
+import Product from "./src/screens/product/details";
+import Review from "./src/screens/product/review";
+import AddReview from "./src/screens/product/addReview";
 // Account pages
 import Account from "./src/screens/profile/account";
 import Profile from "./src/screens/profile/profile";
@@ -69,19 +71,7 @@ const AccountStackNavigation = createStackNavigator(
 	}
 );
 
-const ProductStackNavigation = createStackNavigator(
-	{
-		Details: {
-			screen: Details
-		}
-	},
-	{
-		initialRouteName: "Details",
-		headerMode: "none"
-	}
-);
-
-const MainStackNavigation = createBottomTabNavigator(
+const TabStackNavigation = createBottomTabNavigator(
 	{
 		Explore: {
 			screen: Explore,
@@ -157,11 +147,31 @@ const MainStackNavigation = createBottomTabNavigator(
 	}
 );
 
+const MainStackNavigation = createStackNavigator(
+	{
+		Main: {
+			screen: TabStackNavigation
+		},
+		Product: {
+			screen: Product
+		},
+		Review: {
+			screen: Review
+		},
+		AddReview: {
+			screen: AddReview
+		}
+	},
+	{
+		initialRouteName: "Main",
+		headerMode: "none"
+	}
+);
+
 const TopLevelNavigation = createSwitchNavigator(
 	{
 		Auth: AuthNavigation,
 		App: MainStackNavigation,
-		ProductStackNavigation: ProductStackNavigation,
 		Account: AccountStackNavigation
 	},
 	{

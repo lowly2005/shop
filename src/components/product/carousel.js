@@ -7,7 +7,6 @@ import {
 	Dimensions,
 	TouchableOpacity
 } from "react-native";
-import { NavigationActions } from "react-navigation";
 import { Ionicons } from "@expo/vector-icons";
 
 const screenWidth = Dimensions.get("window").width;
@@ -44,13 +43,7 @@ class Carousel extends Component {
 					<TouchableOpacity
 						style={{ flexDirection: "row", alignItems: "center" }}
 						activeOpacity={0.7}
-						onPress={() =>
-							navigation.dispatch(
-								NavigationActions.navigate({
-									routeName: "App"
-								})
-							)
-						}
+						onPress={() => navigation.goBack()}
 					>
 						<Ionicons
 							name={"ios-arrow-back-outline"}

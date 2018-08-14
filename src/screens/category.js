@@ -176,6 +176,7 @@ export default class Category extends Component {
 				key={item.id}
 				style={categoryStyle}
 				item={item}
+				navigation={this.props.navigation}
 				onRemoveFromFavorite={this.removeFromFavorite}
 				onAddToFavorite={this.addToFavorite}
 			/>

@@ -4,7 +4,11 @@ import { Ionicons } from "@expo/vector-icons";
 
 const items = props => (
 	<View style={{ flex: 1, padding: 5 }}>
-		<TouchableOpacity activeOpacity={0.7} style={props.style.cardContainer}>
+		<TouchableOpacity
+			activeOpacity={0.7}
+			style={props.style.cardContainer}
+			onPress={() => props.navigation.navigate("Product")}
+		>
 			{props.item.deal ? (
 				<View style={props.style.dealContainer}>
 					<Text style={props.style.cardDeal}>Deal</Text>

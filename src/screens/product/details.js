@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ScrollView, View } from "react-native";
+import { NavigationActions } from "react-navigation";
 
 import Carousel from "../../components/product/carousel";
 import GeneralInfo from "../../components/product/generalInfo";
@@ -10,11 +11,12 @@ import Submit from "../../components/product/button";
 
 import {
 	productDetailsStyle,
+	submitStyle,
 	exploreStyle,
 	RED_COLOR
 } from "../../styles/main";
 
-class Details extends Component {
+export default class Details extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -113,8 +115,10 @@ class Details extends Component {
 		} = this.state;
 		return (
 			<React.Fragment>
-				<View style={productDetailsStyle.statusBar} />
-				<ScrollView contentContainerStyle={productDetailsStyle.container}>
+				<ScrollView
+					style={{ backgroundColor: "#fff" }}
+					contentContainerStyle={productDetailsStyle.container}
+				>
 					<Carousel
 						style={productDetailsStyle}
 						list={slider}
@@ -130,6 +134,7 @@ class Details extends Component {
 						style={productDetailsStyle}
 						color={RED_COLOR}
 						item={{ rate, reviewsCount }}
+						navigation={this.props.navigation}
 					/>
 					<Specifications style={productDetailsStyle} items={specifications} />
 					<View style={productDetailsStyle.relatedProductContainer}>
@@ -140,10 +145,19 @@ class Details extends Component {
 						/>
 					</View>
 				</ScrollView>
-				<Submit style={productDetailsStyle} text={"Add to cart"} />
+				<Submit
+					style={submitStyle}
+					text={"Add to cart"}
+					onClick={() =>
+						this.props.navigation.dispatch(
+							NavigationActions.navigate({
+								routeName: "Main",
+								action: NavigationActions.navigate({ routeName: "Cart" })
+							})
+						)
+					}
+				/>
 			</React.Fragment>
 		);
 	}
 }
-
-export default Details;

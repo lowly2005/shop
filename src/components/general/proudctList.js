@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
-import { NavigationActions } from "react-navigation";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const list = props => (
@@ -10,6 +9,7 @@ const list = props => (
 			<TouchableOpacity
 				activeOpacity={0.5}
 				style={props.style.listButtonContainer}
+				onPress={() => props.navigation.navigate("Category")}
 			>
 				{props.button ? (
 					<React.Fragment>
@@ -34,13 +34,7 @@ const list = props => (
 					activeOpacity={0.8}
 					style={props.style.itemContainer}
 					key={item.id}
-					onPress={() =>
-						props.navigation.dispatch(
-							NavigationActions.navigate({
-								routeName: "ProductStackNavigation"
-							})
-						)
-					}
+					onPress={() => props.navigation.navigate("Product")}
 				>
 					<View style={props.style.itemImageContainer}>
 						<Image

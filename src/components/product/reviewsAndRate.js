@@ -51,7 +51,11 @@ const generalInfo = props => (
 			</View>
 			<Text style={props.style.rateText}>{rateStatus(props.item.rate)}</Text>
 		</View>
-		<TouchableOpacity activeOpacity={0.7} style={props.style.reviewsContainer}>
+		<TouchableOpacity
+			activeOpacity={0.7}
+			style={props.style.reviewsContainer}
+			onPress={() => props.navigation.navigate("Review")}
+		>
 			<Text style={props.style.reviewsText}>
 				{props.item.reviewsCount} reviews
 			</Text>

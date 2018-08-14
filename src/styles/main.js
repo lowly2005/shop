@@ -29,6 +29,25 @@ const navbarStyle = StyleSheet.create({
 	}
 });
 
+const submitStyle = StyleSheet.create({
+	buttonContainer: {
+		backgroundColor: PRIMARY_COLOR,
+		paddingTop: 10,
+		paddingBottom: Constants.statusBarHeight > 25 ? 20 : 10,
+		alignItems: "center",
+		position: "absolute",
+		bottom: 0,
+		left: 0,
+		right: 0,
+		zIndex: 10
+	},
+	button: {
+		fontSize: 15,
+		color: "#fff",
+		fontWeight: "bold"
+	}
+});
+
 const searchStyle = StyleSheet.create({
 	container: {
 		flex: 1,
@@ -537,25 +556,12 @@ const categoryStyle = StyleSheet.create({
 
 const productDetailsStyle = StyleSheet.create({
 	container: {
-		flex: 1,
 		backgroundColor: BACKGROUND_COLOR,
 		position: "relative",
-		marginTop: Constants.statusBarHeight
-	},
-	statusBar: {
-		position: "absolute",
-		top: 0,
-		right: 0,
-		left: 0,
-		height: Constants.statusBarHeight,
-		backgroundColor: "#fff",
-		zIndex: 10
+		marginTop: Constants.statusBarHeight,
+		paddingBottom: Constants.statusBarHeight > 25 ? 50 : 35
 	},
 	navbar: {
-		position: "absolute",
-		right: 0,
-		left: 0,
-		top: 0,
 		paddingHorizontal: 15,
 		flexDirection: "row",
 		justifyContent: "space-between",
@@ -691,22 +697,115 @@ const productDetailsStyle = StyleSheet.create({
 	relatedProductContainer: {
 		paddingHorizontal: 15,
 		paddingBottom: Constants.statusBarHeight > 25 ? 35 : 25
+	}
+});
+
+const reviewStyle = StyleSheet.create({
+	container: {
+		backgroundColor: BACKGROUND_COLOR,
+		position: "relative",
+		paddingBottom: Constants.statusBarHeight > 25 ? 50 : 40
 	},
-	buttonContainer: {
-		backgroundColor: PRIMARY_COLOR,
-		paddingTop: 10,
-		paddingBottom: Constants.statusBarHeight > 25 ? 20 : 10,
+	reviewContainer: {
+		padding: 15,
+		borderTopColor: "#eee",
+		borderTopWidth: 1,
+		alignItems: "flex-start",
+		flexDirection: "row"
+	},
+	reviewHeaderContainer: {
+		flexDirection: "row",
 		alignItems: "center",
-		position: "absolute",
-		bottom: 0,
-		left: 0,
-		right: 0,
-		zIndex: 10
+		justifyContent: "space-between",
+		backgroundColor: BACKGROUND_COLOR,
+		paddingTop: Constants.statusBarHeight > 25 ? 50 : 40,
+		paddingBottom: 15,
+		paddingHorizontal: 15
 	},
-	button: {
-		fontSize: 15,
-		color: "#fff",
+	reviewHeader: {
+		fontSize: 30,
 		fontWeight: "bold"
+	},
+	reviewCover: {
+		width: 30,
+		height: 30,
+		borderRadius: 30 / 2,
+		marginRight: 10
+	},
+	rateConatiner: {
+		paddingHorizontal: 8,
+		paddingVertical: 3,
+		borderRadius: 4,
+		backgroundColor: PRIMARY_COLOR,
+		marginRight: 5
+	},
+	rate: {
+		color: "#fff",
+		fontSize: 12
+	},
+	rateText: {
+		fontSize: 12,
+		fontWeight: "500"
+	},
+	titleContainer: {
+		flexWrap: "wrap",
+		flexDirection: "row",
+		marginBottom: 10,
+		paddingHorizontal: 15
+	},
+	title: {
+		fontSize: 15,
+		fontWeight: "bold",
+		marginRight: 10
+	},
+	description: {
+		fontSize: 15,
+		marginBottom: 10
+	},
+	date: {
+		color: "#999",
+		fontSize: 13,
+		fontWeight: "600"
+	},
+	formContainer: {
+		backgroundColor: BACKGROUND_COLOR,
+		flex: 1
+	},
+	form: {
+		paddingHorizontal: 30,
+		paddingBottom: Constants.statusBarHeight > 25 ? 60 : 40
+	},
+	label: {
+		fontSize: 18,
+		fontWeight: "bold",
+		marginVertical: 25
+	},
+	tagHolder: {
+		flexDirection: "row",
+		flexWrap: "wrap"
+	},
+	tagContainer: {
+		paddingVertical: 10,
+		paddingHorizontal: 30,
+		marginBottom: 10,
+		marginRight: 10,
+		borderRadius: 3,
+		borderColor: "#ddd",
+		borderWidth: 1,
+		alignSelf: "flex-start",
+		flexDirection: "column"
+	},
+	input: {
+		height: 100,
+		fontSize: 14,
+		borderBottomColor: PRIMARY_COLOR,
+		borderBottomWidth: 2,
+		marginBottom: 10
+	},
+	remainText: {
+		fontSize: 13,
+		fontWeight: "600",
+		color: "#555"
 	}
 });
 
@@ -717,6 +816,8 @@ export {
 	offersStyle,
 	categoryStyle,
 	productDetailsStyle,
+	submitStyle,
+	reviewStyle,
 	PRIMARY_COLOR,
 	RED_COLOR
 };
