@@ -33,7 +33,7 @@ const submitStyle = StyleSheet.create({
 	buttonContainer: {
 		backgroundColor: PRIMARY_COLOR,
 		paddingTop: 10,
-		paddingBottom: Constants.statusBarHeight > 25 ? 20 : 10,
+		paddingBottom: Constants.statusBarHeight > 25 ? 20 : 15,
 		alignItems: "center",
 		position: "absolute",
 		bottom: 0,
@@ -737,7 +737,8 @@ const reviewStyle = StyleSheet.create({
 		paddingVertical: 3,
 		borderRadius: 4,
 		backgroundColor: PRIMARY_COLOR,
-		marginRight: 5
+		marginRight: 5,
+		alignItems: "center"
 	},
 	rate: {
 		color: "#fff",
@@ -748,10 +749,11 @@ const reviewStyle = StyleSheet.create({
 		fontWeight: "500"
 	},
 	titleContainer: {
+		justifyContent: "flex-start",
 		flexWrap: "wrap",
 		flexDirection: "row",
 		marginBottom: 10,
-		paddingHorizontal: 15
+		paddingRight: 15
 	},
 	title: {
 		fontSize: 15,
@@ -806,6 +808,172 @@ const reviewStyle = StyleSheet.create({
 		fontSize: 13,
 		fontWeight: "600",
 		color: "#555"
+	},
+	starContainer: {
+		flex: 1,
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "flex-start"
+	},
+	star: {
+		marginRight: 10
+	}
+});
+
+const cartStyle = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: BACKGROUND_COLOR,
+		position: "relative",
+		paddingTop: Constants.statusBarHeight > 25 ? 50 : 40
+	},
+	headerContainer: {
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-evenly",
+		paddingBottom: 15
+	},
+	headerTab: {
+		alignItems: "center",
+		flexDirection: "row"
+	},
+	headerSeperatorText: {
+		color: "#ddd",
+		fontSize: 20
+	},
+	headerBackIcon: {
+		marginRight: 20
+	},
+	headerTitle: {
+		fontSize: 15,
+		fontWeight: "bold"
+	},
+	progressContainer: {
+		position: "absolute",
+		left: 0,
+		bottom: 0,
+		height: 2,
+		alignItems: "flex-end",
+		justifyContent: "center",
+		backgroundColor: PRIMARY_COLOR,
+		zIndex: 5
+	},
+	progressFirstCircle: {
+		backgroundColor: "#CCE5D2",
+		zIndex: 5,
+		width: 24,
+		height: 24,
+		borderRadius: 24 / 2,
+		alignItems: "center",
+		justifyContent: "center"
+	},
+	progressSecondCircle: {
+		backgroundColor: "#3DB657",
+		zIndex: 10,
+		width: 14,
+		height: 14,
+		borderRadius: 14 / 2,
+		alignItems: "center",
+		justifyContent: "center"
+	},
+	progressThirdCircle: {
+		backgroundColor: "#fff",
+		zIndex: 12,
+		width: 2,
+		height: 2,
+		borderRadius: 2 / 2
+	},
+	checkoutTitleContainer: {
+		padding: 18,
+		alignItems: "center"
+	},
+	checkoutTitle: {
+		fontSize: 14,
+		fontWeight: "600"
+	},
+	cartItemContainer: {
+		flexDirection: "row",
+		paddingHorizontal: 20,
+		paddingVertical: 30,
+		borderBottomColor: "#eee"
+	},
+	cartItemImage: {
+		height: 75,
+		width: 75,
+		marginRight: 20
+	},
+	cardInfoContainer: {
+		position: "relative",
+		flex: 1,
+		justifyContent: "space-between"
+	},
+	cardItemTitle: {
+		fontSize: 14,
+		fontWeight: "bold"
+	},
+	cardItemPrice: {
+		fontSize: 18,
+		fontWeight: "bold"
+	},
+	cardCountContainer: {
+		flexDirection: "row",
+		alignItems: "center"
+	},
+	cardCountBtn: {
+		width: 35,
+		height: 22,
+		alignItems: "center",
+		justifyContent: "center",
+		borderTopColor: "#BABABA",
+		borderTopWidth: 1,
+		borderBottomColor: "#BABABA",
+		borderBottomWidth: 1
+	},
+	cardCountText: {
+		backgroundColor: "#D8D8D8",
+		width: 35,
+		height: 22,
+		alignItems: "center",
+		justifyContent: "center",
+		borderTopColor: "#BABABA",
+		borderTopWidth: 1,
+		borderBottomColor: "#BABABA",
+		borderBottomWidth: 1
+	},
+	checkoutInforamtion: {
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-between",
+		paddingHorizontal: 20,
+		paddingVertical: 5
+	},
+	cardInfoTitle: {
+		fontSize: 13
+	},
+	cardDelivery: {
+		fontSize: 14,
+		fontWeight: "bold",
+		color: RED_COLOR
+	},
+	couponInput: {
+		backgroundColor: "#eee",
+		borderColor: "#ddd",
+		borderWidth: 1,
+		padding: 15,
+		flex: 4,
+		fontSize: 13
+	},
+	coupunBtnContainer: {
+		flex: 2,
+		alignItems: "center",
+		marginLeft: 15,
+		paddingVertical: 15,
+		paddingHorizontal: 10,
+		backgroundColor: PRIMARY_COLOR
+	},
+	coupunBtn: {
+		fontSize: 13,
+		color: "#fff"
 	}
 });
 
@@ -818,6 +986,7 @@ export {
 	productDetailsStyle,
 	submitStyle,
 	reviewStyle,
+	cartStyle,
 	PRIMARY_COLOR,
 	RED_COLOR
 };

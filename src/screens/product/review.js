@@ -24,7 +24,7 @@ export default class Details extends Component {
 					id: 1,
 					img: require("../../assets/images/review_user1.png"),
 					title: "beats by dre studio",
-					rate: 3.5,
+					rate: 3,
 					description:
 						"I'm hoping the viewfinder won't let dust in like most other SQ-series.",
 					date: "Today at 2:13 pm"
@@ -33,7 +33,7 @@ export default class Details extends Component {
 					id: 2,
 					img: require("../../assets/images/review_user1.png"),
 					title: "Please think thousand times before buying this product",
-					rate: 4.5,
+					rate: 4,
 					description:
 						"Professional SLR camera the Canon EF\nmount no lens included view your orde",
 					date: "Today at 2:13 pm"
@@ -42,7 +42,7 @@ export default class Details extends Component {
 					id: 3,
 					img: require("../../assets/images/review_user1.png"),
 					title: "False and wrong description",
-					rate: 2.5,
+					rate: 2,
 					description:
 						"And it's lighter than any m4/3 camera! If these trends continue, I'll have to swap systems, despite my feelings for oly and appreciaction of pana lenses.",
 					date: "Today at 2:13 pm"
@@ -51,7 +51,7 @@ export default class Details extends Component {
 					id: 4,
 					img: require("../../assets/images/review_user1.png"),
 					title: "Highly reccommended",
-					rate: 4.5,
+					rate: 4,
 					description:
 						"On time and great product, it is as described .\n Converse changed their logo to the other side of the shoe as visible \n on the picture \nin the inside of the shoe , which has its purpose for many artist to \nbe able to drawn or sketch or paint on it",
 					date: "Today at 2:13 pm"
@@ -60,7 +60,7 @@ export default class Details extends Component {
 					id: 5,
 					img: require("../../assets/images/review_user1.png"),
 					title: "Lorem ipsum",
-					rate: 4,
+					rate: 1,
 					description:
 						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
 					date: "Today at 2:13 pm"

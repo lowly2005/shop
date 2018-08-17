@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import { Ionicons, Entypo } from "@expo/vector-icons";
-import { styles, addressStyle, PRIMARY_COLOR } from "../../styles/account";
+import { View, Text, TouchableOpacity } from "react-native";
+
+import List from "../../components/account/list";
+import { Ionicons } from "@expo/vector-icons";
+import { styles, addressStyle } from "../../styles/account";
 
 export default class Orders extends Component {
 	constructor(props) {
@@ -47,6 +49,13 @@ export default class Orders extends Component {
 		};
 	}
 
+	setDefault = id => {
+		this.state.addressItems.find(
+			item => (item.id === id ? (item.default = true) : (item.default = false))
+		);
+		this.setState({ addressItems: this.state.addressItems });
+	};
+
 	removeAddress = id => {
 		let list = this.state.addressItems.filter(item => item.id !== id);
 		this.setState({ addressItems: list });
@@ -77,49 +86,12 @@ export default class Orders extends Component {
 					</TouchableOpacity>
 				</View>
 				<View style={addressStyle.container}>
-					<TouchableOpacity
-						activeOpacity={0.8}
-						style={addressStyle.btnContainer}
-					>
-						<Entypo name="plus" size={22} color={"#fff"} />
-						<Text style={addressStyle.btnText}>Add New Address</Text>
-					</TouchableOpacity>
-					<ScrollView>
-						{addressItems.map(item => {
-							return (
-								<View key={item.id} style={addressStyle.cardContainer}>
-									{item.default ? (
-										<Ionicons
-											name="ios-checkmark-circle"
-											size={28}
-											color={PRIMARY_COLOR}
-											style={addressStyle.default}
-										/>
-									) : null}
-									<Text style={addressStyle.fullName}>{item.fullname}</Text>
-									<Text style={addressStyle.address}>{item.address}</Text>
-									<View style={addressStyle.bottomSection}>
-										<Text style={addressStyle.phone}>{item.phone}</Text>
-										<View style={{ flexDirection: "row" }}>
-											<TouchableOpacity
-												activeOpacity={0.6}
-												onPress={() => this.editAddress()}
-											>
-												<Text style={addressStyle.commandBtn}>Edit</Text>
-											</TouchableOpacity>
-											<View style={addressStyle.divider} />
-											<TouchableOpacity
-												activeOpacity={0.6}
-												onPress={() => this.removeAddress(item.id)}
-											>
-												<Text style={addressStyle.commandBtn}>Delete</Text>
-											</TouchableOpacity>
-										</View>
-									</View>
-								</View>
-							);
-						})}
-					</ScrollView>
+					<List
+						items={addressItems}
+						onEditAddress={this.editAddress}
+						onRemoveAddress={this.removeAddress}
+						onSetDefault={this.setDefault}
+					/>
 				</View>
 			</View>
 		);

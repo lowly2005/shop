@@ -4,7 +4,7 @@ import { Text, TouchableOpacity } from "react-native";
 const generalInfo = props => (
 	<TouchableOpacity
 		activeOpacity={0.8}
-		style={props.style.buttonContainer}
+		style={[props.style.buttonContainer, props.custom]}
 		onPress={() => props.onClick()}
 	>
 		<Text style={props.style.button}>{props.text}</Text>

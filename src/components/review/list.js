@@ -46,7 +46,12 @@ const generalInfo = props => (
 				style={props.style.reviewCover}
 			/>
 		</View>
-		<View style={{ flexWrap: "wrap", flex: 1 }}>
+		<View
+			style={{
+				flex: 1,
+				paddingTop: 5
+			}}
+		>
 			<View style={props.style.titleContainer}>
 				<Text style={props.style.title}>{props.items.title}</Text>
 				<View

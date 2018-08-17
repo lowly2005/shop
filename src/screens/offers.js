@@ -83,7 +83,7 @@ export default class Offers extends Component {
 					<Empty
 						title={"No Offers !"}
 						description={
-							"Divan, currently we don't have any\n offers running. please visit later\n for more updates."
+							"Shayan, currently we don't have any\n offers running. please visit later\n for more updates."
 						}
 						style={offersStyle}
 					/>

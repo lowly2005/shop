@@ -168,6 +168,12 @@ const MainStackNavigation = createStackNavigator(
 	}
 );
 
+const PaymentStackNavigator = createStackNavigator({
+	Main: {
+		screen: Cart
+	}
+});
+
 const TopLevelNavigation = createSwitchNavigator(
 	{
 		Auth: AuthNavigation,
