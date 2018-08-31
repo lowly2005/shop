@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { Theme } from "../constants/style";
 import { Constants } from "expo";
-import { PRIMARY_COLOR } from "./account";
+import { PRIMARY_COLOR, INPUT_BORDER_COLOR } from "./account";
 
 const { MAIN_COLOR, BACKGROUND_COLOR, THIRD_COLOR, RED_COLOR } = Theme.General;
 const {
@@ -977,6 +977,45 @@ const cartStyle = StyleSheet.create({
 	}
 });
 
+const addressModalStyle = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: BACKGROUND_COLOR,
+		paddingTop: Constants.statusBarHeight > 25 ? 50 : 40,
+		paddingBottom: 15,
+		position: "relative"
+	},
+	navigation: {
+		alignItems: "flex-start",
+		paddingHorizontal: 30
+	},
+	navigationTitle: {
+		fontSize: 15,
+		fontWeight: "bold",
+		marginLeft: 15
+	},
+	input: {
+		marginLeft: 30,
+		marginBottom: 30,
+		fontSize: 14,
+		borderBottomColor: INPUT_BORDER_COLOR,
+		borderBottomWidth: 2,
+		paddingVertical: 15
+	},
+	inputActive: {
+		borderBottomColor: PRIMARY_COLOR
+	},
+	inputError: {
+		borderBottomColor: RED_COLOR
+	},
+	submitWhenKeyboardIsActive: {
+		position: "absolute",
+		bottom: 0,
+		left: 0,
+		right: 0
+	}
+});
+
 export {
 	searchStyle,
 	navbarStyle,
@@ -987,6 +1026,7 @@ export {
 	submitStyle,
 	reviewStyle,
 	cartStyle,
+	addressModalStyle,
 	PRIMARY_COLOR,
 	RED_COLOR
 };

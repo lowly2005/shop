@@ -289,10 +289,107 @@ const addressStyle = StyleSheet.create({
 
 const paymentStyle = StyleSheet.create({
 	container: {
-		flex: 1,
 		backgroundColor: "#fff",
-		paddingVertical: 20,
+		paddingVertical: 20
+	},
+	sliderContainer: {
+		marginBottom: 20
+	},
+	slider: { height: 190, padding: 5 },
+	creditCardHolder: {
+		flex: 1,
+		backgroundColor: "#343434",
+		borderRadius: 6,
+		paddingHorizontal: 15,
+		shadowColor: "#000",
+		shadowOpacity: 0.4,
+		shadowRadius: 4,
+		shadowOffset: {
+			width: 0,
+			height: 3
+		},
+		justifyContent: "space-evenly"
+	},
+	creditCardHeader: {
+		alignItems: "flex-start",
+		justifyContent: "space-between",
+		flexDirection: "row"
+	},
+	creditCardFooter: {
+		alignItems: "flex-end",
+		justifyContent: "space-between",
+		flexDirection: "row"
+	},
+	creditCardNumberContainer: {
+		alignItems: "flex-start",
+		justifyContent: "center"
+	},
+	creditCardLabel: {
+		fontSize: 8,
+		color: "#fff",
+		marginBottom: 5
+	},
+	creditCardInput: {
+		fontSize: 14,
+		color: "#fff"
+	},
+	creditCardActiveContainer: {
+		borderRadius: 6,
+		backgroundColor: "#3DB657",
+		paddingVertical: 7,
 		paddingHorizontal: 15
+	},
+	creditCardActive: {
+		color: "#fff",
+		fontSize: 11
+	},
+	formTitle: {
+		fontSize: 18,
+		fontWeight: "bold",
+		marginVertical: 15
+	},
+	input: {
+		fontSize: 13,
+		borderBottomColor: INPUT_BORDER_COLOR,
+		fontWeight: "bold",
+		borderBottomWidth: 1,
+		paddingVertical: 15,
+		marginBottom: 25,
+		color: MAIN_COLOR
+	},
+	inputActive: {
+		borderBottomColor: INPUT_BORDER_COLOR_ACTIVE
+	},
+	inputError: {
+		borderBottomColor: INPUT_BORDER_COLOR_ERROR
+	},
+	selectDateInput: {
+		borderBottomColor: INPUT_BORDER_COLOR,
+		borderBottomWidth: 1,
+		paddingVertical: 15,
+		marginBottom: 35
+	},
+	selectDate: { color: MAIN_COLOR, fontWeight: "bold", fontSize: 13 },
+	datePicker: {
+		flex: 1,
+		// alignItems: "center",
+		// justifyContent: "center",
+		backgroundColor: "#222"
+		// borderTopColor: "#eee",
+		// borderTopWidth: 1
+	},
+	submitContainer: {
+		borderRadius: 4,
+		borderWidth: 1,
+		borderColor: PRIMARY_COLOR,
+		paddingVertical: 12,
+		width: 110,
+		alignItems: "center"
+	},
+	submit: {
+		fontSize: 15,
+		fontWeight: "bold",
+		color: PRIMARY_COLOR
 	}
 });
 

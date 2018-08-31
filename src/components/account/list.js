@@ -5,7 +5,11 @@ import { addressStyle, PRIMARY_COLOR } from "../../styles/account";
 
 const Items = props => (
 	<React.Fragment>
-		<TouchableOpacity activeOpacity={0.8} style={addressStyle.btnContainer}>
+		<TouchableOpacity
+			activeOpacity={0.8}
+			style={addressStyle.btnContainer}
+			onPress={() => props.onShowAddressModal()}
+		>
 			<Entypo name="plus" size={22} color={"#fff"} />
 			<Text style={addressStyle.btnText}>Add New Address</Text>
 		</TouchableOpacity>
@@ -16,7 +20,7 @@ const Items = props => (
 						activeOpacity={0.8}
 						key={item.id}
 						style={addressStyle.cardContainer}
-						onPress={() => props.onSetDefault()}
+						onPress={() => props.onSetDefault(item.id)}
 					>
 						{item.default ? (
 							<Ionicons

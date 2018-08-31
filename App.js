@@ -25,6 +25,8 @@ import Orders from "./src/screens/profile/orders";
 import Address from "./src/screens/profile/address";
 import Payment from "./src/screens/profile/payment";
 import Tracking from "./src/screens/profile/tracking";
+// Status pages
+import OrderStatus from "./src/screens/orderStatus";
 
 const AuthNavigation = createStackNavigator(
 	{
@@ -66,7 +68,7 @@ const AccountStackNavigation = createStackNavigator(
 		}
 	},
 	{
-		initialRouteName: "Account",
+		initialRouteName: "Payment",
 		headerMode: "none"
 	}
 );
@@ -130,7 +132,7 @@ const TabStackNavigation = createBottomTabNavigator(
 		}
 	},
 	{
-		initialRouteName: "Explore",
+		initialRouteName: "Cart",
 		tabBarOptions: {
 			activeTintColor: "#43B55B",
 			inactiveTintColor: "#444",
@@ -170,7 +172,7 @@ const MainStackNavigation = createStackNavigator(
 
 const PaymentStackNavigator = createStackNavigator({
 	Main: {
-		screen: Cart
+		screen: OrderStatus
 	}
 });
 

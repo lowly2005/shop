@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
 import List from "../../components/account/list";
+import AddressModal from "../../components/address/modal";
 import { Ionicons } from "@expo/vector-icons";
 import { styles, addressStyle } from "../../styles/account";
 
@@ -45,13 +46,17 @@ export default class Orders extends Component {
 					phone: "(316) 330-9169",
 					default: false
 				}
-			]
+			],
+			modalStatus: false,
+			modalTitle: "Add address"
 		};
 	}
 
 	setDefault = id => {
-		this.state.addressItems.find(
-			item => (item.id === id ? (item.default = true) : (item.default = false))
+		let items = this.state.addressItems;
+		items.map(
+			item =>
+				item.id === id ? (item.default = !item.default) : (item.default = false)
 		);
 		this.setState({ addressItems: this.state.addressItems });
 	};
@@ -63,10 +68,20 @@ export default class Orders extends Component {
 
 	editAddress = id => {};
 
+	closeAddressModal = () => this.setState({ modalStatus: false });
+
+	showAddressModal = () => this.setState({ modalStatus: true });
+
 	render() {
-		const { addressItems } = this.state;
+		const { addressItems, modalStatus, modalTitle } = this.state;
 		return (
 			<View style={styles.container}>
+				<AddressModal
+					status={modalStatus}
+					title={modalTitle}
+					onClose={this.closeAddressModal}
+					onSaveAddress={this.closeAddressModal}
+				/>
 				<View style={styles.header}>
 					<View
 						style={{
@@ -91,6 +106,7 @@ export default class Orders extends Component {
 						onEditAddress={this.editAddress}
 						onRemoveAddress={this.removeAddress}
 						onSetDefault={this.setDefault}
+						onShowAddressModal={this.showAddressModal}
 					/>
 				</View>
 			</View>

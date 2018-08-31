@@ -3,6 +3,7 @@ import { View, ScrollView } from "react-native";
 
 import Header from "../components/cart/header";
 import List from "../components/account/list";
+import AddressModal from "../components/address/modal";
 import Checkout from "../components/cart/checkout";
 import Empty from "../components/empty";
 import Submit from "../components/product/button";
@@ -12,7 +13,7 @@ export default class Cart extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			stage: 0,
+			stage: 1,
 			addressItems: [
 				{
 					id: 0,
@@ -71,7 +72,8 @@ export default class Cart extends Component {
 				}
 			],
 			delivery: 0,
-			voucher: null
+			voucher: null,
+			addressModalStatus: false
 		};
 	}
 
@@ -105,6 +107,10 @@ export default class Cart extends Component {
 
 	updateVoucher = value => this.setState({ voucher: value });
 
+	closeAddressModal = () => this.setState({ addressModalStatus: false });
+
+	showAddressModal = () => this.setState({ addressModalStatus: true });
+
 	goToNextStep = () =>
 		this.state.stage !== 2
 			? this.setState({ stage: this.state.stage + 1 })
@@ -132,11 +138,20 @@ export default class Cart extends Component {
 				);
 			case 1:
 				return (
-					<List
-						items={this.state.addressItems}
-						onEditAddress={this.editAddress}
-						onRemoveAddress={this.removeAddress}
-					/>
+					<React.Fragment>
+						<AddressModal
+							status={this.state.addressModalStatus}
+							title={"Add Address"}
+							onClose={this.closeAddressModal}
+							onSaveAddress={this.closeAddressModal}
+						/>
+						<List
+							items={this.state.addressItems}
+							onEditAddress={this.editAddress}
+							onRemoveAddress={this.removeAddress}
+							onShowAddressModal={this.showAddressModal}
+						/>
+					</React.Fragment>
 				);
 			case 2:
 				return <ScrollView />;
