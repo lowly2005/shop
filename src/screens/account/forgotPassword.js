@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
-import { styles, PLACEHOLDER_COLOR } from "../../styles/auth";
+import { styles, Theme } from "../../styles/auth";
 
 export default class ForgotPassword extends Component {
 	constructor(props) {
@@ -27,6 +27,7 @@ export default class ForgotPassword extends Component {
 
 	render() {
 		const { email, isSubmited } = this.state;
+		const { PLACEHOLDER_COLOR } = Theme.Auth;
 		return (
 			<View style={styles.container}>
 				<View style={styles.header}>

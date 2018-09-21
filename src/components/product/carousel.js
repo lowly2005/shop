@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-	View,
-	Text,
-	Image,
-	ScrollView,
-	Dimensions,
-	TouchableOpacity
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { View, Image, ScrollView, Dimensions } from "react-native";
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -30,50 +22,9 @@ class Carousel extends Component {
 
 	render() {
 		const { page } = this.state;
-		const {
-			style,
-			list,
-			favorite,
-			onChangeFavoriteStatus,
-			navigation
-		} = this.props;
+		const { style, list } = this.props;
 		return (
-			<View style={{ position: "relative" }}>
-				<View style={style.navbar}>
-					<TouchableOpacity
-						style={{ flexDirection: "row", alignItems: "center" }}
-						activeOpacity={0.7}
-						onPress={() => navigation.goBack()}
-					>
-						<Ionicons
-							name={"ios-arrow-back-outline"}
-							size={22}
-							color={"#999"}
-						/>
-						<Text style={{ fontSize: 16, fontWeight: "bold", marginLeft: 10 }}>
-							Product details
-						</Text>
-					</TouchableOpacity>
-					<TouchableOpacity activeOpacity={0.7}>
-						{favorite ? (
-							<Ionicons
-								style={style.favorite}
-								name={"md-heart"}
-								size={22}
-								color={"#FF0101"}
-								onPress={() => onChangeFavoriteStatus()}
-							/>
-						) : (
-							<Ionicons
-								style={style.favorite}
-								name={"md-heart-outline"}
-								size={22}
-								color={"#222"}
-								onPress={() => onChangeFavoriteStatus()}
-							/>
-						)}
-					</TouchableOpacity>
-				</View>
+			<View style={style.carouselContainer}>
 				<ScrollView
 					horizontal
 					pagingEnabled

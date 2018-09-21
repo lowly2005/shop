@@ -372,11 +372,7 @@ const paymentStyle = StyleSheet.create({
 	selectDate: { color: MAIN_COLOR, fontWeight: "bold", fontSize: 13 },
 	datePicker: {
 		flex: 1,
-		// alignItems: "center",
-		// justifyContent: "center",
 		backgroundColor: "#222"
-		// borderTopColor: "#eee",
-		// borderTopWidth: 1
 	},
 	submitContainer: {
 		borderRadius: 4,

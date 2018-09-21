@@ -1,4 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
+import { Provider } from "react-redux";
+import store from "./src/store";
+
 import {
 	createStackNavigator,
 	createBottomTabNavigator,
@@ -68,7 +71,7 @@ const AccountStackNavigation = createStackNavigator(
 		}
 	},
 	{
-		initialRouteName: "Payment",
+		initialRouteName: "Account",
 		headerMode: "none"
 	}
 );
@@ -132,7 +135,7 @@ const TabStackNavigation = createBottomTabNavigator(
 		}
 	},
 	{
-		initialRouteName: "Cart",
+		initialRouteName: "Category",
 		tabBarOptions: {
 			activeTintColor: "#43B55B",
 			inactiveTintColor: "#444",
@@ -183,8 +186,16 @@ const TopLevelNavigation = createSwitchNavigator(
 		Account: AccountStackNavigation
 	},
 	{
-		initialRouteName: "App"
+		initialRouteName: "Auth"
 	}
 );
 
-export default TopLevelNavigation;
+export default class App extends Component {
+	render() {
+		return (
+			<Provider store={store}>
+				<TopLevelNavigation />
+			</Provider>
+		);
+	}
+}

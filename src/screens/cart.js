@@ -13,7 +13,7 @@ export default class Cart extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			stage: 1,
+			stage: 0,
 			addressItems: [
 				{
 					id: 0,

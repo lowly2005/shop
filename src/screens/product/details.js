@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ScrollView, View } from "react-native";
 import { NavigationActions } from "react-navigation";
 
+import Navbar from "../../components/product/navbar";
 import Carousel from "../../components/product/carousel";
 import GeneralInfo from "../../components/product/generalInfo";
 import ReviewsAndRate from "../../components/product/reviewsAndRate";
@@ -13,7 +14,7 @@ import {
 	productDetailsStyle,
 	submitStyle,
 	exploreStyle,
-	RED_COLOR
+	Theme
 } from "../../styles/main";
 
 export default class Details extends Component {
@@ -113,19 +114,20 @@ export default class Details extends Component {
 			specifications,
 			list
 		} = this.state;
+		const { RED_COLOR } = Theme.General;
 		return (
 			<React.Fragment>
+				<Navbar
+					style={productDetailsStyle}
+					favorite={favorite}
+					onChangeFavoriteStatus={this.changeFavoriteStatus}
+					navigation={this.props.navigation}
+				/>
 				<ScrollView
 					style={{ backgroundColor: "#fff" }}
 					contentContainerStyle={productDetailsStyle.container}
 				>
-					<Carousel
-						style={productDetailsStyle}
-						list={slider}
-						favorite={favorite}
-						navigation={this.props.navigation}
-						onChangeFavoriteStatus={this.changeFavoriteStatus}
-					/>
+					<Carousel style={productDetailsStyle} list={slider} />
 					<GeneralInfo
 						style={productDetailsStyle}
 						item={{ discount, discountPrice, price, title }}

@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions/loginAction";
 import {
 	View,
 	Text,
@@ -15,9 +18,9 @@ import {
 } from "@expo/vector-icons";
 import { NavigationActions } from "react-navigation";
 
-import { styles, PLACEHOLDER_COLOR } from "../../styles/auth";
+import { styles, Theme } from "../../styles/auth";
 
-export default class Login extends Component {
+class Login extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -98,9 +101,10 @@ export default class Login extends Component {
 
 	submit = () => {
 		this.setState({ isSubmited: true });
-		this.props.navigation.dispatch(
-			NavigationActions.navigate({ routeName: "App" })
-		);
+		// this.props.navigation.dispatch(
+		// 	NavigationActions.navigate({ routeName: "App" })
+		// );
+		this.props.loginUser({});
 	};
 
 	facebookAuth = () => {};
@@ -118,7 +122,7 @@ export default class Login extends Component {
 			submitAnim,
 			submitFadeAnim
 		} = this.state;
-		console.log(this.props.navigation.state);
+		const { PLACEHOLDER_COLOR } = Theme.Auth;
 		return (
 			<View style={styles.container}>
 				<View style={styles.header}>
@@ -252,3 +256,18 @@ export default class Login extends Component {
 		);
 	}
 }
+
+Login.propTypes = {
+	Auth: PropTypes.shape({
+		isLoading: PropTypes.bool.isRequired
+	})
+};
+
+const mapStateToProps = state => ({
+	Auth: state.Auth
+});
+
+export default connect(
+	mapStateToProps,
+	{ loginUser }
+)(Login);

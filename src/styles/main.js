@@ -561,11 +561,22 @@ const productDetailsStyle = StyleSheet.create({
 		marginTop: Constants.statusBarHeight,
 		paddingBottom: Constants.statusBarHeight > 25 ? 50 : 35
 	},
+	carouselContainer: {
+		position: "relative",
+		marginTop: Constants.statusBarHeight > 25 ? 50 : 35
+	},
 	navbar: {
+		position: "absolute",
+		top: 0,
+		left: 0,
+		right: 0,
+		paddingTop: Constants.statusBarHeight > 25 ? 50 : 35,
+		paddingBottom: 15,
 		paddingHorizontal: 15,
 		flexDirection: "row",
 		justifyContent: "space-between",
-		zIndex: 20
+		zIndex: 20,
+		backgroundColor: "rgba(255, 255, 255, 0.7)"
 	},
 	slider: {
 		position: "relative"
@@ -1028,5 +1039,6 @@ export {
 	cartStyle,
 	addressModalStyle,
 	PRIMARY_COLOR,
-	RED_COLOR
+	RED_COLOR,
+	Theme
 };

@@ -7,12 +7,7 @@ import {
 	FlatList
 } from "react-native";
 
-import {
-	searchStyle,
-	navbarStyle,
-	categoryStyle,
-	PRIMARY_COLOR
-} from "../styles/main";
+import { searchStyle, navbarStyle, categoryStyle, Theme } from "../styles/main";
 import Navbar from "../components/general/navbar";
 import Items from "../components/category/items";
 import CategoryList from "../components/category/list";
@@ -196,6 +191,7 @@ export default class Category extends Component {
 			filterModalStatus,
 			searchModalStatus
 		} = this.state;
+		const { PRIMARY_COLOR } = Theme.General;
 		return (
 			<React.Fragment>
 				<CategoryList

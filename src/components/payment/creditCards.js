@@ -1,10 +1,34 @@
 import React, { Component } from "react";
-import { View, Text, Dimensions } from "react-native";
+import { View, Text, Dimensions, TouchableOpacity } from "react-native";
 import Carousel from "react-native-snap-carousel";
 
 const { width } = Dimensions.get("window");
 
 export default class CrediCards extends Component {
+	constructor(props) {
+		super();
+		this.state = {
+			items: []
+		};
+	}
+
+	componentDidMount() {
+		this.setState({ items: this.props.items });
+	}
+
+	componentDidUpdate(prevProps) {
+		if (this.props.items !== prevProps.items)
+			this.setState({ items: this.props.items });
+	}
+
+	activeCard = item => {
+		let result = this.state.items;
+		result.forEach(el => {
+			el.active = true;
+		});
+		this.setState({ items: result });
+	};
+
 	validateCreditCardType = number => {
 		if (number.charAt(0) == 3) return "American Express";
 
@@ -31,7 +55,11 @@ export default class CrediCards extends Component {
 	_renderItem = ({ item, index }) => {
 		return (
 			<View style={this.props.style.slider}>
-				<View style={this.props.style.creditCardHolder}>
+				<TouchableOpacity
+					activeOpacity={0.8}
+					style={this.props.style.creditCardHolder}
+					onPress={() => this.activeCard(item)}
+				>
 					<View style={this.props.style.creditCardHeader}>
 						<Text style={this.props.style.creditCardInput}>
 							{this.validateCreditCardType(item.number)}
@@ -69,18 +97,19 @@ export default class CrediCards extends Component {
 							) : null}
 						</View>
 					</View>
-				</View>
+				</TouchableOpacity>
 			</View>
 		);
 	};
 
 	render() {
+		const { items } = this.state;
 		return (
 			<Carousel
 				ref={c => {
 					this._carousel = c;
 				}}
-				data={this.props.items}
+				data={items}
 				renderItem={this._renderItem}
 				sliderWidth={width}
 				itemWidth={width - 40}

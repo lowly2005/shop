@@ -1,50 +1,64 @@
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { styles, ordersStyle } from "../../styles/account";
+import { styles, ordersStyle, PRIMARY_COLOR } from "../../styles/account";
 import Items from "../../components/orders/items";
 
 export default class Orders extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			activeItem: [
+				{
+					id: 0,
+					title: "Rawpockets Neck Dark Blue",
+					date: "13 July 2018",
+					img: require("../../assets/images/orders_item1.png"),
+					status: 2
+				}
+			],
 			deliveredItems: [
 				{
 					id: 0,
 					title: "Fastrack Retro Square Sunglasses",
 					date: "22 March 2018",
-					img: require("../../assets/images/orders_item2.png")
+					img: require("../../assets/images/orders_item2.png"),
+					status: 3
 				},
 				{
 					id: 1,
 					title: "Solid Men's Polo Neck Orange T-Shirt",
 					date: "10 Jun 2018",
-					img: require("../../assets/images/orders_item3.png")
+					img: require("../../assets/images/orders_item3.png"),
+					status: 3
 				},
 				{
 					id: 2,
 					title: "Philips Cordless Trimmer for Men",
 					date: "07 Sep 2018",
-					img: require("../../assets/images/orders_item4.png")
+					img: require("../../assets/images/orders_item4.png"),
+					status: 3
 				},
 				{
 					id: 3,
 					title: "Converse High Ankle Sneakers",
 					date: "01 Aug 2018",
-					img: require("../../assets/images/orders_item5.png")
+					img: require("../../assets/images/orders_item5.png"),
+					status: 3
 				},
 				{
 					id: 4,
 					title: "Silly Punter Graphic Grey T-Shirt",
 					date: "27 May 2018",
-					img: require("../../assets/images/orders_item6.png")
+					img: require("../../assets/images/orders_item6.png"),
+					status: 3
 				}
 			]
 		};
 	}
 
 	render() {
-		const { deliveredItems } = this.state;
+		const { activeItem, deliveredItems } = this.state;
 		return (
 			<View style={styles.container}>
 				<View style={styles.header}>
@@ -66,32 +80,13 @@ export default class Orders extends Component {
 					</TouchableOpacity>
 				</View>
 				<Text style={ordersStyle.label}>CURRENT ORDERS</Text>
-				<View style={ordersStyle.currentOrderContainer}>
-					<View style={ordersStyle.currentOrderImageContainer}>
-						<Image
-							resizeMode="cover"
-							style={ordersStyle.currentOrderImage}
-							source={require("../../assets/images/orders_item1.png")}
-						/>
-					</View>
-					<View style={{ flexDirection: "column" }}>
-						<Text style={ordersStyle.currentOrderTitle}>
-							Rawpockets Neck Dark Blue
-						</Text>
-						<Text style={ordersStyle.currentOrderStatus}>Item shipped</Text>
-					</View>
-					<Text style={ordersStyle.currentOrderDate}>ETA : 13 july</Text>
-				</View>
+				{activeItem.map(item => (
+					<Items style={ordersStyle} key={item.id} item={item} />
+				))}
 				<Text style={ordersStyle.label}>PAST ORDERS</Text>
 				<ScrollView>
 					{deliveredItems.map(item => (
-						<Items
-							style={ordersStyle}
-							key={item.id}
-							title={item.title}
-							date={item.date}
-							img={item.img}
-						/>
+						<Items style={ordersStyle} key={item.id} item={item} />
 					))}
 				</ScrollView>
 			</View>

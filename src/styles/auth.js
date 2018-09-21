@@ -159,4 +159,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export { styles, PLACEHOLDER_COLOR };
+export { styles, Theme };
